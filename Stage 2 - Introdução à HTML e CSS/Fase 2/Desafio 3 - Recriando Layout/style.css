@@ -1,0 +1,50 @@
+body {
+     background: #2C2B3D;
+}
+
+ul li a {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    color: #FFFFFF;
+
+}
+
+h1 {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 40px;
+    color: #FFFFFF;
+
+}
+
+h1 span {
+    color: #00BFA6;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    color: #C2C2C2;
+}
+
+p span {
+    color: #00BFA6;
+    font-weight: bold;
+}
+
+footer {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+#line {
+    width: 568px;
+    height: 0;
+    border: 1px solid #00BFA6;
+    margin: 0 auto 27px;
+}
