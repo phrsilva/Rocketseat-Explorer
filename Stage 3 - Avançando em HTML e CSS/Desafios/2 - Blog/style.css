@@ -1,10 +1,217 @@
+/* Proporções Globais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-.root {
+/* REM e Cores */
+:root {
     font-size: 62.5%;
+    --cor-titulo: hsl(240, 6%, 13%);
+    --cor-texto: hsl(240, 5%, 7%);
+    --cor-header: hsl(195, 91%, 25%);
+    --cor-footer: hsl(195, 46%, 40%);
+
+
 }
 
+/* fontes */
+html, input {
+    font-family: "Mulish", sans-serif; 
+}
+
+/* Imagens */
+
+img {
+    width: 100%;
+    height: auto;
+}
+/* Header */
+header {
+    background-color: var(--cor-header);
+    padding: 1rem 2.8rem;
+
+}
+
+/* Botão, Formulário e Imagem de Perfil */
+
+header img {
+    width: auto;
+    
+}
+header .container {
+    max-width: 26.875rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+header form input {
+    background: rgb(255 255 255 / 0.2);
+    border: none;
+    padding: 0.75rem 0.875rem;
+    border-radius: 0.25rem;
+
+    font-weight: 600;
+    line-height: 100%;
+
+    color: white;
+}
+
+header form input::placeholder {
+    color: white;
+}
+
+/* Body */
+/* Título H1  */
+
+h1 {
+    margin: 1rem auto 1rem;
+    font-size: 2.4rem;
+    color: var(--cor-titulo);
+}
+
+/* Botões de like */
+
+.curtidas button {
+    all: unset;
+    transition: all 600ms;
+
+}
+
+button:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Texto em tags p  */
+
+main p {
+    font-size: 1.6rem;
+    margin: 1rem auto 1rem;
+    color: var(--cor-texto);
+
+}
+
+/* Conteúdo relacionado */
+/* tag h2 */
+.related h2 {
+    font-size: 2.4rem;
+    color: var(--cor-titulo);
+    margin-bottom: 1rem;
+}
+
+/* Imagens */
+
+.related img {
+    transition: all 600ms;
+}
+
+.related img:hover {
+    transform: scale(1.1);
+}
+
+/* Tag h3 */
+.related h3 {
+    font-size: 1.8rem;
+    color: var(--cor-titulo);
+
+}
+/* tags em p  */
+
+.related p { 
+    font-size: 1.6rem;
+    color: var(--cor-titulo)
+
+}
+.related img {
+    width: 95%;
+    height: 100%;
+}
+/* Display do container em grid  */
+
+section article {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    margin-bottom: 1rem;
+}
+
+/* footer - elemento simples */
+
+footer {
+    background-color: var(--cor-footer);
+    color: white;
+    text-align: center;
+    padding-block: 1.5rem;
+    gap: 2.5rem 2rem;
+    
+}
+
+/* visualização grid para desktop */
+@media (width > 45rem) {
+    #app {
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "main aside"
+            "footer footer";
+
+        gap: 2.5rem 2rem;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    header .container {
+        max-width: 144rem;;
+        margin-inline: auto;
+
+    }
+
+    header form {
+        flex: 1;
+    }
+
+    header form input {
+        width: 100%;
+    }
+
+    main {
+        grid-area: main;
+        }
+
+    main.container {
+        max-width: 50rem;
+        margin-left: auto;
+    }
+
+    aside {
+        grid-area: aside;
+
+    }
+
+    aside.container {
+        max-width: 24rem;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    /* Animações */
+
+    header {
+        animation: fromTop 600ms 100ms backwards;
+    }
+
+    @keyframes fromTop {
+        from {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+    }
+
+    
+}
