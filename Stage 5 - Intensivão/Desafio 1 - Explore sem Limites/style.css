@@ -1,8 +1,257 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
+    font-family: 'Mulish', sans-serif;
     font-size: 62.5%;
+    /* Variáveis de cores */
+
+    --cor-h1: hsl(320, 69%, 42%); 
+    --cor-fundos: hsl(244, 38%, 28%);
+    --cor-texto: hsl(244, 38%, 28%);
+    --gradiente: linear-gradient(90deg, #343193, #302C63);
+    --gradiente-hover: linear-gradient(90deg, #6562c9, #454275);
+    
+     
+}
+
+
+/* 
+Na primeira seção da página, os conteúdos estão centralizados e há uma margem de 93px para a próxima seção 
+A tag h1 está em 32px 
+Tag h2 em 20px
+*/
+
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 9.3rem;
+
+}
+
+.landing img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+
+.landing h1 {
+    color: var(--cor-h1);
+    font-size: 3.2rem;
+    margin-bottom: .5rem;
+
+}
+
+.landing h2 {
+
+    color: var(--cor-texto);
+    font-size: 2rem;
+    margin-bottom: 3.5rem;
+
+}
+
+/* 
+Na segunda parte da página, content, há um background em gradiente linear partindo da cor #343193 para #302C63. 
+Os conteúdos são divididos em caixas com bordas de 19.86px (2rem)
+As tags h1 possuem font-size de 28px (2.8rem)
+As tags p possuem font-size de 16px (1.6rem)
+Há um gap de 50px entre as caixas (5rem)
+
+*/
+
+.content {
+    background: var(--gradiente);
+    padding: 1rem ;
+    
+    
+}
+
+.container {
+    background: white;
+    width: 32rem;
+    height: auto;
+    gap: 5rem;
+    margin: 5rem 3.2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+
+}
+
+.container h1 {
+    color: var(--cor-h1);
+    font-size: 2.8rem;
+    margin: 3rem auto 2rem;
+
+}
+
+.container p {
+    color: var(--cor-texto);
+    max-width: 26rem;
+}
+
+/* 
+
+O aside é composto por um formulário de três campos, sendo dois inputs e uma text area. 
+Além disso, é identificado por uma tag h1 e finalizado com um botão que segue o gradiente utilizado na página
+
+
+*/
+
+.form {
+    margin: 7.8rem 4rem 6.5rem;
+    display: block;
+}
+
+.form h1 {
+    color: var(--cor-h1);
+    font-size: 3.2rem;
+    margin-bottom: 4.3rem;
+
+
+}
+
+.form input, button {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.4rem;
+
+}
+
+.form input {
+    width: 35rem;
+    height: 4.8rem;
+    border: 1px solid #312D64;
+    border-radius: 1.6rem;
+}
+
+.form button {
+    margin-top: 2.4rem;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1rem; /* Espaço entre os inputs */
+}
+
+/* Estilização do input */
+.styled-input {
+    width: 100%;
+    padding-left: 3.5rem; /* Adiciona espaço para a imagem */
+    box-sizing: border-box;
+    height: 2rem;
+    font-size: 1.6rem;
+}
+
+/* Estilização da label como placeholder */
+.input-placeholder {
+    position: absolute;
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Garante que a label não bloqueie cliques */
+    padding-left: 1rem;
+}
+
+/* Estilização da imagem dentro do placeholder */
+.input-placeholder img {
+    margin-right: 0.5rem; /* Espaço entre a imagem e o texto */
+}
+
+.form textarea {
+    height: 13rem;
+    width: 35rem;
+    border-radius: 1.6rem;
+    border: 1px solid #312D64;
+    padding: 1.6rem;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.6rem;
+    color: var(--cor-texto);
+
+    
+}
+
+.form button {
+    height: 4.5rem;
+    background: var(--gradiente);
+    border: 0;
+    border-radius: 1.6rem;
+    padding: 1rem 1.6rem;
+
+    font-family: 'Mulish', sans-serif;
+  
+  
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  
+  
+    color: #FFFFFF;
+  }
+
+
+footer {
+    background: var(--gradiente);
+    color: white;
+    text-align: center;
+    padding: 3.2rem;
+    font-size: 2rem;
+    font-family: 'Mulish', sans-serif;
+
+}
+
+@media (min-width: 700px) {
+
+    .landing {
+        display: grid;
+        grid-template-areas: 
+        "A B"
+        "C B";
+    
+    }
+
+    .landing img:first-child {
+       display: grid;
+       grid-area: B;
+
+    }
+
+    .landing h1 {
+        grid-area: A;
+    }
+
+    .landing h2 {
+        grid-area: C;
+        }
+
+    
+    .content {
+        display: flex;
+    }
+
+    aside {
+        display: flex;
+        align-items: center;
+        gap: 9.2rem;
+        padding: 0;
+        height: 62.2rem;
+        margin: 0 auto;
+        background: url(./images/img6.png) no-repeat right center;
+
+    }
+
+    aside .form {
+        flex: 1;
+        margin-left: 10.9rem;
+    }
+
+    aside .estrelas {
+        flex: 1;
+    }
+
 }

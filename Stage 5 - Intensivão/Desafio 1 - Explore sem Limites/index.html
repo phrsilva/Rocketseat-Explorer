@@ -1,12 +1,104 @@
+<!-- Iniciar html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Carregar fontes do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Explore sem limites</title>
+    <!-- Linkar estilo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- No corpo do html temos: uma seção main dividida em dois painéis,  um formulário dentro de um aside e um footer simples -->
     
+    <div class="landing">
+        <!-- Na primeira seção do main, temos um conteúdo formado por imagem + h1 + h2 + imagem -->
+
+
+        <img src="./images/img1.png" alt="imagem de um astronauta no espaço">
+        <h1>Explore sem limites</h1>
+        <h2>Porque o aprendizado é contínuo</h2>
+        <img src="./images/img2.png" alt="seta apontando para baixo">
+
+    </div>
+
+    <div class="content">
+
+    <!-- A área de conteúdo é formada por três caixas cada qual consistindo em imagem, tag h1 e tag p -->
+        <div class="container">
+        <img src="./images/img3.png" alt="planeta em tons de laranja e amarelo">
+        <h1>Não pare nunca</h1>
+        <p>Se você deseja ter sucesso nos estudos, é fundamental que você adote uma mentalidade de "não pare nunca". Estudar de forma consistente e contínua é a chave para o progresso e a conquista de seus objetivos.</p>
+    
+        </div>
+
+        <div class="container">
+        <img src="./images/img4.png" alt="planeta em tons de azul">
+        <h1>Só volta</h1>
+        <p>Se você parou ou perdeu o ritmo em alguma atividade ou projeto, saiba que nunca é tarde para recomeçar. Às vezes as circunstâncias podem mudar ou podemos nos sentir desmotivados ou sobrecarregados</p>
+        </div>
+
+        <div class="container">
+        <img src="./images/img5.png" alt="planeta em tons de rosa">
+        <h1>Siga seu ritmo</h1>
+        <p>Avançar pouco a pouco mantém o progresso constante em objetivos, evitando parar ou desistir. Mesmo pequenos passos nos aproximam do destino e motivam a continuidade. Não subestime o poder de cada ação rumo ao objetivo final</p>
+        </div>
+           
+
+
+    </div>
+        
+    <aside>
+            <!-- O aside é composto por uma tag h1, além de dois inputs, um textarea e um botão. Dentro dos dois inputs também há um ícone -->
+            <div class="form">
+                <form id="form">
+
+                    <h1>Entre em contato</h1>
+                    <div class="input-container">
+                        <label for="nome" class="input-placeholder">
+                            <img src="./images/icon1.svg" alt="">
+                            
+                        </label>
+                        <input type="text" id="nome" class="styled-input" placeholder="Seu Nome">
+                        
+    
+                    </div>
+    
+                    <label for="email" class="input-placeholder">
+                        <img src="./images/icon2.svg" alt="">
+                    </label>
+                    <input type="text" id="email" class="styled-input" placeholder="Seu e-mail">
+    
+    
+                    <textarea placeholder="Digite sua mensagem aqui..."></textarea>
+    
+                    <button class="button" form="form" type="submit">Enviar Mensagem</button>
+            
+    
+
+                </form>
+
+               
+            </div>
+
+            <div class="estrelas">              
+            </div>
+            
+    
+    </aside>
+    
+    <footer>
+    
+            <!-- Por fim, um footer simples -->
+            
+            <p>© 2023 - Rocketseat Explorer</p>
+    
+    </footer>
+    
+
 </body>
 </html>
