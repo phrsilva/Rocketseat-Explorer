@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5px;
+}
+
+body {
+    background: linear-gradient(280deg, #A1C4FD 100%,#C2E9FB 0%);
+}
+
+
+
