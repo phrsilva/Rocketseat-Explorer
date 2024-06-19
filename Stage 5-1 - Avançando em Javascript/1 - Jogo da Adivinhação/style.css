@@ -5,12 +5,116 @@
 }
 
 :root {
-    font-size: 62.5px;
+    font-size: 62.5%;
 }
 
 body {
     background: linear-gradient(280deg, #A1C4FD 100%,#C2E9FB 0%);
 }
 
+main h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.hide {
+    display: none;
+}
+
+main {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(42.8rem, 90%);
+    margin: 14rem auto;
+    padding: 4.8rem 6.4rem 6.4rem;
+    border-radius: .6rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .25);
+}
+
+main p {
+    margin-bottom: 4.8rem;
+}
+
+
+
+.display1 fieldset {
+    border: 1px solid #E6E6F0;
+    border-radius: .4rem;
+    display: flex;
+    width: 12.5rem;
+    margin: auto;
+
+
+}
+
+input {
+    width: 4.3rem;
+    height: 5.3rem;
+    text-align: center;
+    border-radius: .4rem 0 0 .4rem;
+    border: none;
+    background: #DCE2E9;
+    color: #34355B;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;
+
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #7879F1;
+}
+
+input:hover {
+    cursor: pointer;
+    background: #C2E9FB;
+}
+
+button {
+    border: none;   
+    width: 8.2rem;
+    height: 5.3rem;
+    border-radius: 0 .4rem .4rem 0;
+    color: white;
+    background: #7879F1;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;
+}
+
+button:hover {
+    background: #4D4DFF;
+    cursor: pointer;
+}
+
+
+.display2 h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2.4rem;
+    margin-bottom: 3.3rem;
+}
+
+.display2 button {
+    width: 100%;
+    height: 5.3rem;
+    border-radius: .4rem;
+    color: white;
+    background: #7879F1;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;  
+}
+
+.display2 button:hover {
+    background: #4D4DFF;
+    cursor: pointer;
+}
 
 
