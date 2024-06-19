@@ -3,11 +3,21 @@ let tentativas = 0;
 
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
+// call handleClick() para o btn1 quando o usuário pressionar enter
+
+document.querySelector("input").addEventListener("keyup", function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        btn1.click();
+    }
+  });
+
 btn1.addEventListener("click", handleClick);
 btn2.addEventListener("click", playAgain);
 
 function handleClick() {
     const num = document.querySelector("input").value;
+    document.querySelector("input").value = "";
     tentativas++;
     
     if (num == randomNum) {
