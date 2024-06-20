@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* remove scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(-123deg, #BB00FF 0%, #190361 100%) no-repeat; 
+   
+}
+
+.hide {
+    display: none;
+}
+
+main {
+    background: white;
+    width: min(42.8rem, 80%);
+    margin-inline: auto;
+    margin: 24rem auto 32rem;
+    padding: 4.8rem 6.4rem 6.4rem;
+    align-items: center;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+main h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #34355B;
+    font-size: 2.4rem;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}
+
+
+main p {
+    font-family: 'DM Sans', sans-serif;
+    color: #34355B;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* animação para imagem do cookie tremer ao passar o mouse */
+
+.screen1 img{
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+.screen2 p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.4rem;
+    padding: 1rem 1rem 1rem;
+    text-align: center;
+    background: #E4EDF1;
+    margin: 1.7rem .2rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.5);
+    border-radius: .4rem;
+}
+
+/* animação para a tag p que deverá aparecer gradualmente ao carregar a página */
+
+.screen2 p {
+    opacity: 0;
+    animation: appear 1s forwards;
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: .2;
+    }
+
+    40% {
+        opacity: .4;
+    }
+    
+    60% {
+        opacity: .6;
+    }
+
+    80% {
+        opacity: .8;
+    }
+
+    0% {
+        opacity: 0;
+    }
+}
+
+.screen2 img {
+    width: 100%;
+    margin: 1.7rem auto 1.7rem;
+}   
+
+.screen2 button {
+    display: block;
+    margin-inline: auto;
+    margin-top: 1.7rem;
+    width: 17.4rem;
+    height: 5.2rem;
+    background: #FF9500;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    border-radius: .4rem;
+    border: none;
+    
+}
+
+.screen2 button:hover {
+    background: #FF8300;
+    cursor: pointer;
+
+    /* animação do botão ao passar o mouse aumentando seu tamanho em 30% gradativamente*/
+
+    transform: scale(1.1);
+
+    transition: .3s;
+    
+}
+
+
