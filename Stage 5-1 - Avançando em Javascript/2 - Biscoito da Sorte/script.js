@@ -21,7 +21,6 @@ const phrases = [
 const cookie = document.querySelector("#cookie");
 const btn = document.querySelector("#btn");
 
-
 //Eventos
 cookie.addEventListener("click", tellFortune)
 btn.addEventListener("click", newFortune)
