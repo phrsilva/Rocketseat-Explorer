@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Focus Timer v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Linkar CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Phospor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Linkar JS -->
+    <script type="module" src="./main.js" defer></script>      
+
+
+
+</head>
+
+
+<body>
+    <!-- Iniciar aplicação -->
+    <div id="app">
+
+        <div class="pomodoro">
+            <section id="timer" class="flex">
+        
+                <span id="minutes">25</span>
+    
+                <span>:</span>
+    
+                <span id="seconds">00</span>
+    
+            </section>
+    
+            <section id="controls" class="flex">
+    
+                <button class ="ph ph-play-circle">
+                    <span class="sr-only">Iniciar</span>
+                </button>
+                <button class="ph ph-stop-circle">
+                    <span class="sr-only">Parar</span>
+                </button>
+                <button class="ph ph-plus-circle">
+                    <span class="sr-only">Acrescentar tempo</span>
+                </button>
+                <button class="ph ph-minus-circle">
+                    <span class="sr-only">
+                        Diminuir tempo
+                    </span>
+                </button>
+    
+            </section>
+
+        </div>
+
+        
+        <section id="sounds" class="flex">
+            <button class="ph ph-tree">
+                <span class="sr-only">Sons da natureza</span>
+            </button>
+            <button class="ph ph-cloud-rain">
+                <span class="sr-only">Sons de chuva</span>
+            </button>
+            <button class="ph ph-campfire">
+                <span class="sr-only">Sons da lareira</span>
+            </button>
+            <button class="ph ph-users-three">
+                <span class="sr-only">Sons da cidade</span>
+            </button>
+
+        </section>
+
+    </div>
+
+    
+</body>
+</html>

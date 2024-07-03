@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    /* font-size: clamp(62.5%, 1% +2vw, 62.5%);	 */
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    grid-template-areas: "pomodoro" "sounds";
+    place-content: center;
+    height: 100vh;
+    background: hsl(18, 51%, 53%);
+
+}
+
+#app {
+    border: 1px solid black;
+    padding: 2.4rem;
+    gap: 19.2rem;
+    align-items: center;
+    margin-top: -12rem;
+}
+
+.flex {
+    display: flex;
+}
+
+#timer {
+    grid-area: pomodoro;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 12.6rem;
+    font-weight: bold;
+}
+
+#controls {
+    margin-top: 1.6rem;
+    padding: 1.2rem 2rem;
+    gap: 4rem;
+}
+  
+#controls button {
+    font-size: 4.8rem;
+    background-color: transparent;
+    border: none;
+}
+
+#sounds {
+    grid-area: sounds;
+    gap: 2rem;
+    margin-top: 2.4rem;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#sounds button {
+  width: 13.8rem;
+  height: 15.2rem;
+  font-size: 4.8rem;
+  opacity: 0.7;
+  border: none;
+  border-radius: 2.4rem;
+  background: lightcoral;
+
+}
+
+button {
+  cursor: pointer;
+}
+    
