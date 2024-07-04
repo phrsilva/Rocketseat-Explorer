@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Phospor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="shortcut icon" href="./src/assets/images/favicon.svg"  type="image/x-svg">
+
     <!-- Linkar JS -->
     <script type="module" src="./main.js" defer></script>      
 
@@ -25,8 +27,8 @@
     <!-- Iniciar aplicação -->
     <div id="app">
 
-        <div class="pomodoro">
-            <section id="timer" class="flex">
+        <div id="pomodoro">
+            <section id="timer">
         
                 <span id="minutes">25</span>
     
@@ -36,18 +38,22 @@
     
             </section>
     
-            <section id="controls" class="flex">
+            <section id="controls">
     
-                <button class ="ph ph-play-circle">
+                <button class ="ph ph-play-pause"
+                data-action="start">
                     <span class="sr-only">Iniciar</span>
                 </button>
-                <button class="ph ph-stop-circle">
+                <button class="ph ph-stop"
+                data-action="stop">
                     <span class="sr-only">Parar</span>
                 </button>
-                <button class="ph ph-plus-circle">
+                <button class="ph ph-plus"
+                data-action="increase">
                     <span class="sr-only">Acrescentar tempo</span>
                 </button>
-                <button class="ph ph-minus-circle">
+                <button class="ph ph-minus"
+                data-action="decrease">
                     <span class="sr-only">
                         Diminuir tempo
                     </span>
@@ -58,17 +64,25 @@
         </div>
 
         
-        <section id="sounds" class="flex">
-            <button class="ph ph-tree">
+        <section id="sounds">
+            <button class="ph ph-plant"
+            id="plant"
+            data-bgm="nature">
                 <span class="sr-only">Sons da natureza</span>
             </button>
-            <button class="ph ph-cloud-rain">
+            <button class="ph ph-cloud-lightning"
+            id="thunder"
+            data-bgm="thunder">
                 <span class="sr-only">Sons de chuva</span>
             </button>
-            <button class="ph ph-campfire">
+            <button class="ph ph-campfire"
+            id= "campfire"
+            data-bgm="campfire">
                 <span class="sr-only">Sons da lareira</span>
             </button>
-            <button class="ph ph-users-three">
+            <button class="ph ph-waves"
+            data-bgm="waves"
+            id ="waves">
                 <span class="sr-only">Sons da cidade</span>
             </button>
 
