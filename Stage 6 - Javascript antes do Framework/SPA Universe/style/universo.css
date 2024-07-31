@@ -1,0 +1,26 @@
+body {
+    font-size: 1.6rem;
+    color: white;
+    background-image: url("/src/images/mountains-universe-2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 4.8rem 0;
+    max-width: 64.8rem;
+    margin-top: 8.5rem;
+    margin-left: 10rem;
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    justify-content: left;
+    text-align: left;
+}

@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+
+}
+
+nav {
+    color: #C4C4CC;
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    font-size: 1.6rem;
+    margin: 4.0rem auto auto 7.2rem;
+
+}
+
+a {
+    text-decoration: none;
+    color: #C4C4CC;
+    font-size: 1.6rem;
+}
+
+a:hover {
+    color: white;
+    font-weight: bold;
+}
