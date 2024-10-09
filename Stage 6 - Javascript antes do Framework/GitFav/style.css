@@ -116,7 +116,7 @@ table * {
 }
 
 table th {
-    text-align: center;
+    text-align: left;
     background: var(--cor-cabecalho);
     padding: 1.6rem;
     font-weight: normal;
@@ -134,7 +134,6 @@ table th:last-child {
 
 table td {
     padding: 1.6rem;
-    text-align: center;
 }
 
 table tr:nth-child(even) {
@@ -154,4 +153,19 @@ td.user img {
     border-radius: 50%;
     object-fit: cover;
 
+}
+
+td.user {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+
+}
+
+td.user a {
+    text-decoration: none;
+}
+
+td.user a p {
+    font-weight: bold;
 }
