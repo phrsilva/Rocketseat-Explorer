@@ -28,6 +28,7 @@ const port = 3333;
 
 
 const usersRoutes = require('./routes/users.routes');
+const notesRoutes = require('./routes/notes.routes');
 
 
 app.use(express.json());
@@ -38,5 +39,6 @@ app.listen(port, () => {
 
 
 app.use('/users', usersRoutes);
+app.use('/notes/:id', notesRoutes);
 
 migrationsRun();
