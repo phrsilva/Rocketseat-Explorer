@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError');
 
 
 class UserControllers {
-
+    // criar usuário
     async create(req, res) {
         const {name, email, password} = req.body;
 
@@ -61,6 +61,7 @@ class UserControllers {
         
     }
 
+    // listar usuários
     async index(req, res) {
         const users = await knex('users').select('*');
 
@@ -74,6 +75,7 @@ class UserControllers {
         }));
     }
 
+    // mostrar usuário
     async show(req, res) {
         const {id} = req.params;
 
@@ -91,6 +93,7 @@ class UserControllers {
         });
     }
 
+    // atualizar usuário
     async update(req, res) {
         const {id} = req.params;
         const {name, email, password} = req.body;
@@ -148,6 +151,7 @@ class UserControllers {
 
     }
 
+    // deletar usuário
     async delete(req, res) {
         const {id} = req.params;
 
