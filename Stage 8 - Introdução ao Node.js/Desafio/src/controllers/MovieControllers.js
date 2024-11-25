@@ -67,9 +67,37 @@ class MovieControllers {
         }));
     }
 
-    async update(req, res) {}
+    async update(req, res) {
+        const {id} = req.params;
+        const {name, description, score, user_id} = req.body;
 
-    async delete(req, res) {}
+        const movie = await knex('movie_scores').where({id}).first();
+
+        if (!movie) {
+            throw new AppError('Filme nao encontrado', 404);
+        }
+
+
+
+        await knex('movie_scores').update({name, description, score, user_id}).where({id});
+
+
+        return res.status(200).json(`O filme '${name}' foi atualizado com sucesso!`);
+    }
+
+    async delete(req, res) {
+        const {id} = req.params;
+
+        const movie = await knex('movie_scores').where({id}).first();
+
+        if (!movie) {
+            throw new AppError('Filme nao encontrado', 404);
+        }
+
+        await knex('movie_scores').delete().where({id});
+
+        return res.status(200).json(`O filme '${movie.name}' foi deletado com sucesso!`);
+    }
 }
 
 module.exports = new MovieControllers();
