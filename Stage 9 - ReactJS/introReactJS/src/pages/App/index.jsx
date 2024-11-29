@@ -1,12 +1,12 @@
-import { Fragment } from 'react'
-import './styles.css'
+import { Container } from "./styles"
 export function App () {
   
   return (
-    <Fragment>
-
+    <Container>
       <h1>Hello React</h1>
       <p>Por Pedro Henrique</p>
-    </Fragment>
+
+    </Container>
+
   )
 }
