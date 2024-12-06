@@ -11,6 +11,11 @@ export const Container = styled.button`
     margin-top: 1.6rem;
     border-radius: 1rem;
     font-weight: 500;
+    
+    width: 55rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 
     &:disabled {
         opacity: 0.5;

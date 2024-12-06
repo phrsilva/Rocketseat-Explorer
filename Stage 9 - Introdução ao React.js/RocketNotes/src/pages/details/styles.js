@@ -12,6 +12,14 @@ export const Container = styled.div`
     "content"
     ;
 
+    > main {
+        grid-area: content;
+        overflow-y: scroll;
+        padding: 6.4rem 0;
+
+
+    }
+
 `;
 
 export const Links = styled.ul`
@@ -28,3 +36,30 @@ export const Links = styled.ul`
 `;
 
 
+export const Content = styled.div`
+    margin: 0 auto;
+    max-width: 50rem;
+
+    display: flex;
+    flex-direction: column;
+
+    > button:first-child {
+        align-self: end;
+    }
+
+    h1 {
+        font-size: 3.6rem;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        padding-top: 4rem;
+        font-weight: 500;
+        margin-bottom: 1.6rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        margin-top: 2.4rem;
+        
+    }
+
+`;
