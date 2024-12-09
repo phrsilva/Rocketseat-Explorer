@@ -3,13 +3,16 @@ import { Header } from "../../components/header";
 import { ButtonText } from "../../components/buttonText";
 import { FiPlus, FiSearch } from "react-icons/fi";
 import { Input } from "../../components/input";
+import { Section } from "../../components/section";
+import { Note } from "../../components/note";
+
 
 
 export function Home() {
     return (
         <Container>
             <Brand>
-                <h1>Rocketnotes</h1>
+                <h1>RocketNotes</h1>
             </Brand>
 
             <Header>
@@ -28,6 +31,11 @@ export function Home() {
             </Search>
 
             <Content>
+                <Section title="Minhas notas">
+                    <Note data = {{title: "React", tags: [{id: 1, name: "React"}, {id: 2, name: "React Native"}]}} />
+
+
+                </Section>
 
             </Content>
 
