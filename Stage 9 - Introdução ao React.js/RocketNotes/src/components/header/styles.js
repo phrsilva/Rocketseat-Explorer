@@ -7,14 +7,14 @@ export const Container = styled.header`
 
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    border-bottom-color: ${({ theme }) => theme.COLORS.ORANGE};
 
     display: flex;
     justify-content: space-between;
 
     padding: 0 4rem;
 
-    background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 `;
 
 export const Profile = styled.div`
