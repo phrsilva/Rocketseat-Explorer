@@ -1,11 +1,11 @@
 import { Container } from "./style";
 
-export function TextArea(value, ...rest) {
+export function TextArea({value, ...rest}) {
     return (
-        <Container {...rest}>
+        <Container placeholder="Digite sua nota aqui" {...rest}>
             {value}
 
 
-        </Container>
+        </Container>    
     );
 }

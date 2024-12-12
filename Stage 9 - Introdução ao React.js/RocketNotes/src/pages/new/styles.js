@@ -9,6 +9,17 @@ export const Container = styled.div`
     "header"
     "content"
     ;
+
+    main {
+        grid-area: content;
+        overflow-y: auto;
+    }
+
+    .tags {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 `;
 
 export const Form = styled.form`
@@ -30,5 +41,9 @@ export const Form = styled.form`
 
         }
 
+    }
+
+    > input {
+        font-size: 2.4rem;
     }
 `;
