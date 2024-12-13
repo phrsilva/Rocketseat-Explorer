@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container  = styled.div`
@@ -74,7 +75,7 @@ export const Content  = styled.div`
 
 
 `;
-export const NewNote = styled.button`
+export const NewNote = styled(Link)`
     background-color: ${({ theme }) => theme.COLORS.ORANGE};
     border: none;
     display: flex;
