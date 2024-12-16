@@ -1,5 +1,8 @@
+import { Routes, Route } from "react-router-dom";
+import { Header } from "../../components/header";
+
 export const Home = () => {
     return (
-        <h1>Home</h1>
+        <Header />
     );
 }
