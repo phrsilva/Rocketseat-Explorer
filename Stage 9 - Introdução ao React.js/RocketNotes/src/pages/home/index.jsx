@@ -12,7 +12,7 @@ export function Home() {
     return (
         <Container>
             <Brand>
-                <h1>RocketNotes</h1>
+                <h1>RocketNuotes</h1>
             </Brand>
 
             <Header>
