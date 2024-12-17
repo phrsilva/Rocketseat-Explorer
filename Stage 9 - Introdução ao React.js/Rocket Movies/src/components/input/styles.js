@@ -2,15 +2,37 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
-    width: 100%;
-    height: 5.6rem;
-    margin-bottom: 2.4rem;
+    gap: 0.8rem;
+    width: 63rem;
+
+
+
+
+    > input {
+        width: 100%;
+        border-radius: 0.8rem;
+        height: 4.6rem;
+        font-size: 1.6rem;
+        background-color: ${({ theme }) => theme.CORES.FUNDO_CLARO};
+        border: none;
+        color: ${({ theme }) => theme.CORES.TEXTO_BRANCO};
+        padding: 0 1.6rem;
+    }
+
+    > input::placeholder {
+        color: ${({ theme }) => theme.CORES.TEXTO_CINZA};
+    }
+
+    > input::focus {
+        outline: none;
+    }
+
+    > svg {
+        color: ${({ theme }) => theme.CORES.TEXTO_CINZA};
+    }
+
+    
+
 `;
 
-export const Label = styled.label`
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-`;
