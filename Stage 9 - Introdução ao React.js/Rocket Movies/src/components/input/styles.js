@@ -5,10 +5,7 @@ export const Container = styled.div`
     align-items: center;
     gap: 0.8rem;
     width: 63rem;
-
-
-
-
+    
     > input {
         width: 100%;
         border-radius: 0.8rem;

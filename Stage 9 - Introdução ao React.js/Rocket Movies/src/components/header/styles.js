@@ -11,6 +11,7 @@ export const Container = styled.header`
     width: 100%;
     justify-content: space-between;
     padding: 3.2rem 3rem;
+    margin-bottom: 6rem;
 
     gap: 6.4rem;
 
