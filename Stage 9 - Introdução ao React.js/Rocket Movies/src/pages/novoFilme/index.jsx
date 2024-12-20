@@ -4,6 +4,8 @@ import { Header } from "../../components/header";
 import { BotaoDeTexto } from "../../components/textButton";
 import { FiArrowLeft } from "react-icons/fi";
 import { Section } from "../../components/section";
+import { AreaDeTexto } from "../../components/AreaDeTexto";
+
 
 export const Novo = () => {
     return (
@@ -11,6 +13,7 @@ export const Novo = () => {
             <Header />
             <BotaoDeTexto icon={FiArrowLeft} title="Voltar" />
             <h1>Novo Filme</h1>
+            <AreaDeTexto placeholder="Título"></AreaDeTexto>
             
         </Container>
     );
