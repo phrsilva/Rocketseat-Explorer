@@ -17,6 +17,7 @@ export function Header() {
                     </span>
                     <a href="#">Sair</a>
                 </div>
+                    
                     <img src="https://github.com/phrsilva.png" alt="Foto de perfil" />
 
             </Profile>

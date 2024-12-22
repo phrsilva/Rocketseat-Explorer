@@ -14,9 +14,10 @@ export const Login = () => {
                 <Input icon={FiMail} placeholder="E-mail" />
                 <Input type="password" icon={FiLock} placeholder="Senha" />
                 <Button title="Entrar" />
-                <BotaoDeTexto title="Criar conta" >
-                    <Link to="/cadastrar" />
-                </BotaoDeTexto>
+                <Link to="/cadastrar">
+                    <BotaoDeTexto title="Criar conta" />
+                </Link>
+                    
 
             </Form>
             <PlanoDeFundo/>

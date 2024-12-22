@@ -16,7 +16,11 @@ export const Cadastrar = () => {
                 <Input icon={FiMail} placeholder="E-mail" />
                 <Input type="password" icon={FiLock} placeholder="Senha" />
                 <Input type="password" icon={FiLock} placeholder="Confirmar Senha"/>
-                <Button title="Criar conta" />
+                
+                <Link to="/">
+                    <Button title="Criar conta" />
+                
+                </Link>
                
 
             </Form>
