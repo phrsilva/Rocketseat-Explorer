@@ -23,7 +23,7 @@ class UsersController{
 
     async update(request, response){
         const { name, email, password, currentPassword } = request.body;
-        const { id } = request.params;
+        const id = request.user.id;
         const db = await database();
         const user = await db.get('SELECT * FROM users WHERE id = (?)', [id]);
         const passwordHash = await hash(password, 8);
