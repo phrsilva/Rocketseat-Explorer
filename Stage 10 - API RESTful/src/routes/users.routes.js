@@ -11,7 +11,7 @@ const usersController = new UsersController();
 
 
 usersRoutes.post('/',  usersController.create);
-usersRoutes.put('/:id', ensureAuth, usersController.update);
+usersRoutes.put('/', ensureAuth, usersController.update);
 
 
 module.exports = usersRoutes;
