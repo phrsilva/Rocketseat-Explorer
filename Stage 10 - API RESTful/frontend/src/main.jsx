@@ -5,13 +5,17 @@ import theme from './styles/theme.js'
 import GlobalStyles from './styles/global.js'
 
 import { Routes } from './routes'
+import { AuthProvider } from '../../backend/src/hooks/auth.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+
     </ThemeProvider>
   </StrictMode>
 )
