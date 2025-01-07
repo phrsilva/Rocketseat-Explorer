@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Container , Form, Avatar} from "./style";
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Input } from "../../components/input";
@@ -5,6 +7,13 @@ import { Button } from "../../components/button";
 import { Link } from "react-router-dom";
 
 export function Profile() {
+
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [currentPassword, setCurrentPassword] = useState();
+    const [newPassword, setNewPassword] = useState();
+
+
     return (
         <Container>
             <header>
