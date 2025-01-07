@@ -4,15 +4,15 @@ import { api } from '../service/API';
 export const AuthContext = createContext({});
 
 function AuthProvider({children}) {
-
+    
+    const [data, setData] = useState({});
     async function signIn({email, password}) {
-        const [data, setData] = useState({});
 
         try {
         const response = await api.post('/sessions', {email, password});
         const {token, user} = response.data;
         api.defaults.headers.authorization = `Bearer ${token}`;
-        setData[user, token];
+        setData({user, token});
 
         } catch (error) {
             if (error.response) {
