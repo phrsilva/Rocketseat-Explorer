@@ -22,6 +22,9 @@ class UsersController{
     }
 
     async update(request, response){
+        // current password é a senha atual. password é a nova senha
+        // ajustar essa lógica 
+        
         const { name, email, password, currentPassword } = request.body;
         const id = request.user.id;
         const db = await database();
