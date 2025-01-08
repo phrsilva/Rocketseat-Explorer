@@ -50,12 +50,30 @@ function AuthProvider({children}) {
         setData({});
     }
 
+    async function updateProfile({user}) {
+        try {
+            await api.put('/users', user)
+            localStorage.setItem('@rocketnotes:user', JSON.stringify(user))
+
+            setData({
+                user,
+                token: data.token
+            })
+
+            alert('Perfil atualizado!')
+        } catch (error) {
+            alert('Não foi possível atualizar o perfil');
+        }
+    }
+
 
     return(
         <AuthContext.Provider value={{
             signIn, 
             user: data.user, 
-            signOut}}>
+            signOut,
+            updateProfile
+            }}>
             {children}
         </AuthContext.Provider>
     )
