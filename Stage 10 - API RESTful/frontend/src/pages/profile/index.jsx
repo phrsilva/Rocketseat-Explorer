@@ -14,16 +14,16 @@ export function Profile() {
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
-    const [oldPassword, setOldPassword] = useState()
-    const [newPassword, setNewPassword] = useState()
+    const [senhaAtual, setSenhaAtual] = useState()
+    const [novaSenha, setNovaSenha] = useState()
    
 
     async function handleUpdate() {
         const user = {
             name,
             email,
-            password: newPassword,
-            old_password: oldPassword
+            senhaAtual: senhaAtual,
+            novaSenha: novaSenha
         }
         await updateProfile({user});
     }
@@ -65,7 +65,7 @@ export function Profile() {
                 placeholder="Senha Atual"
                 type="password"
                 icon={FiLock}
-                onChange={e => setOldPassword(e.target.value)}
+                onChange={e => setSenhaAtual(e.target.value)}
 
                 />
 
@@ -73,7 +73,7 @@ export function Profile() {
                 placeholder="Nova Senha"
                 type="password"
                 icon={FiLock}
-                onChange={e => setNewPassword(e.target.value)}
+                onChange={e => setNovaSenha(e.target.value)}
 
 
                 />
