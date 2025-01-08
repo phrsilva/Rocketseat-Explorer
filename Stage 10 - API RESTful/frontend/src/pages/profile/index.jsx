@@ -2,20 +2,27 @@ import { useState } from "react";
 
 import { Container , Form, Avatar} from "./style";
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
+
+import avatarPlaceholder from "../../assets/avatarPlaceholder.svg";
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { Link } from "react-router-dom";
-
+import { api } from "../../../../backend/src/service/API";
 import { useAuth } from "../../../../backend/src/hooks/auth";
 
 export function Profile() {
 
     const { user, updateProfile } = useAuth();
 
-    const [name, setName] = useState(user.name);
+    const [name, setName] = useState(user.name);    
     const [email, setEmail] = useState(user.email);
     const [senhaAtual, setSenhaAtual] = useState()
     const [novaSenha, setNovaSenha] = useState()
+
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+    const [avatar, setAvatar] = useState(user.avatar);
+    const [avatarFile, setAvatarFile] = useState(null);
    
 
     async function handleUpdate() {
@@ -25,7 +32,15 @@ export function Profile() {
             senhaAtual: senhaAtual,
             novaSenha: novaSenha
         }
-        await updateProfile({user});
+        await updateProfile({user, avatarFile});
+    }
+
+    function handleChangeAvatar(event) {
+        const file = event.target.files[0];
+        setAvatarFile(file);
+
+        const imagePreview = URL.createObjectURL(file);
+        setAvatar(imagePreview);
     }
 
 
@@ -36,12 +51,13 @@ export function Profile() {
             </header>
             <Form>
                 <Avatar>
-                    <img src="https://github.com/phrsilva.png" alt="Foto de perfil" />
+                    <img src={avatarUrl} alt="Foto de perfil" />
                     <label htmlFor="avatar">
                         <FiCamera />
                         <input 
                         id="avatar"
-                        type="file" />
+                        type="file" 
+                        onChange={handleChangeAvatar}/>
                     </label>
                 </Avatar>
 
@@ -55,7 +71,7 @@ export function Profile() {
 
                 <Input 
                 placeholder="E-mail"
-                type="text"
+                type="text" 
                 icon={FiMail}
                 value={email}
                 onChange={e => setEmail(e.target.value)}
