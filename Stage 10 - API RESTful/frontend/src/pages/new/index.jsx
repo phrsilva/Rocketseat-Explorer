@@ -7,16 +7,34 @@ import { NoteItem } from "../../components/noteItem";
 import { Section } from '../../components/section'
 import { Button } from "../../components/button";
 import { Container, Form } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../../../backend/src/service/API";
 
 
 export function New() {
+    const navigate = useNavigate();
+
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
     
     const [links, setLinks] = useState([]);
     const [newLink, setNewLink] = useState('');
 
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState('');
+
+    async function handleNewNote() {
+        await api.post("/notes", {
+            title,
+            description,
+            tags,
+            links
+        })
+
+        alert("Nota criada com sucesso!");
+        navigate("/");
+        }
 
 
     function handleAddLink() {
@@ -49,8 +67,11 @@ export function New() {
                     </header>
                     <Input
                     placeholder="Título"
+                    onChange={e => setTitle(e.target.value)}
                     />
-                    <TextArea ></TextArea>
+                    <TextArea
+                    placeholder="Observações"
+                    onChange={e => setDescription(e.target.value)} ></TextArea>
 
                     <Section title="Links úteis">
                         {
@@ -95,7 +116,10 @@ export function New() {
                         </div>
                     </Section>
 
-                    <Button title="Salvar" />
+                    <Button 
+                    title="Salvar" 
+                    onClick={handleNewNote}
+                    />
 
                 </Form>
 
