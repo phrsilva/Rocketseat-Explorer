@@ -25,6 +25,14 @@ export function New() {
     const [newTag, setNewTag] = useState('');
 
     async function handleNewNote() {
+
+        if (!title || !description) {
+            return alert("Preencha o título e a descrição!");
+        }
+
+        if (newTag || newLink) {
+            return alert("Tags e/ou links não adicionados!\n Clique no botão + para adicionar.");
+        }
         await api.post("/notes", {
             title,
             description,
