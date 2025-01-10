@@ -14,8 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 export function Home() {
 
+<<<<<<< HEAD
     const navigate = useNavigate();
 
+=======
+>>>>>>> e10170c (cadastro de notas na home)
     const [tags, useTags] = useState([]);
     const [selectedTag, setSelectedTag] = useState([]);
 
@@ -32,10 +35,13 @@ export function Home() {
         }
     }
 
+<<<<<<< HEAD
     function handleDetails(id) {
         navigate(`/details/${id}`);
     }
 
+=======
+>>>>>>> e10170c (cadastro de notas na home)
     useEffect(() => {
         async function fetchTags() {
             const response = await api.get('/tags');
@@ -89,7 +95,11 @@ export function Home() {
                 <Section title="Minhas notas">
                     {
 
+<<<<<<< HEAD
                         notes.map(note => <Note key={String(note.id)} data={{...note,tags}} onClick={() => handleDetails(note.id)} />)
+=======
+                        notes.map(note => <Note key={String(note.id)} data={{...note,tags}} />)
+>>>>>>> e10170c (cadastro de notas na home)
                     }
 
                   
