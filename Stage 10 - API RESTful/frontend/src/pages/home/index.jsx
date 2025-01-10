@@ -15,8 +15,11 @@ import { useNavigate } from "react-router-dom";
 export function Home() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const navigate = useNavigate();
 
+=======
+>>>>>>> e10170c (cadastro de notas na home)
 =======
 >>>>>>> e10170c (cadastro de notas na home)
     const [tags, useTags] = useState([]);
@@ -36,10 +39,13 @@ export function Home() {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     function handleDetails(id) {
         navigate(`/details/${id}`);
     }
 
+=======
+>>>>>>> e10170c (cadastro de notas na home)
 =======
 >>>>>>> e10170c (cadastro de notas na home)
     useEffect(() => {
@@ -96,7 +102,11 @@ export function Home() {
                     {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         notes.map(note => <Note key={String(note.id)} data={{...note,tags}} onClick={() => handleDetails(note.id)} />)
+=======
+                        notes.map(note => <Note key={String(note.id)} data={{...note,tags}} />)
+>>>>>>> e10170c (cadastro de notas na home)
 =======
                         notes.map(note => <Note key={String(note.id)} data={{...note,tags}} />)
 >>>>>>> e10170c (cadastro de notas na home)
