@@ -8,11 +8,13 @@ import { FiPlus, FiSearch } from "react-icons/fi";
 import { Input } from "../../components/input";
 import { Section } from "../../components/section";
 import { Note } from "../../components/note";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 export function Home() {
+
+    const navigate = useNavigate();
 
     const [tags, useTags] = useState([]);
     const [selectedTag, setSelectedTag] = useState([]);
@@ -28,6 +30,10 @@ export function Home() {
         } else {
             setSelectedTag(prevState => [...prevState, tagName]);
         }
+    }
+
+    function handleDetails(id) {
+        navigate(`/details/${id}`);
     }
 
     useEffect(() => {
@@ -83,7 +89,7 @@ export function Home() {
                 <Section title="Minhas notas">
                     {
 
-                        notes.map(note => <Note key={String(note.id)} data={{...note,tags}} />)
+                        notes.map(note => <Note key={String(note.id)} data={{...note,tags}} onClick={() => handleDetails(note.id)} />)
                     }
 
                   
