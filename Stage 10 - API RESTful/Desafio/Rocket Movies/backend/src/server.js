@@ -6,8 +6,10 @@ const routes = require('./routes');
 const database = require('./database');
 const AppError = require('./utils/AppError');
 const uploadConfig = require('./configs/upload');
+const cors = require('cors');
 
 
+app.use(cors());
 
 database();
 app.use(express.json()); 
