@@ -168,6 +168,12 @@ class UserControllers {
         return res.status(200).json({'message':'Usuário deletado com sucesso!!'});
     }
 
+    // mudar o avatar
+
+    
+
 }
+
+
 
 module.exports = new UserControllers(); 

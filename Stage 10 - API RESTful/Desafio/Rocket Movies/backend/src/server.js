@@ -5,11 +5,13 @@ const port = 3000;
 const routes = require('./routes');
 const database = require('./database');
 const AppError = require('./utils/AppError');
+const uploadConfig = require('./configs/upload');
 
 
 
 database();
-app.use(express.json());    
+app.use(express.json()); 
+app.use('/files', express.static(uploadConfig.UPLOADS_FOLDER));   
 
 app.use(routes)
 
