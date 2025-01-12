@@ -10,13 +10,13 @@ class SessionsController {
 
         const {email, password} = req.body
 
-        const usuario = await knex('users').where({email}).first();
+        const user = await knex('users').where({email}).first();
 
-        if(!usuario) {
+        if(!user) {
             throw new AppError('Email e/ou senha incorretos', 401);
         }
 
-        const verificarSenha = await compare(password, usuario.password);
+        const verificarSenha = await compare(password, user.password);
 
         if(!verificarSenha) {
             throw new AppError('Email e/ou senha incorretos', 401);
@@ -24,13 +24,13 @@ class SessionsController {
 
         const { secret, expiresIn } = configAutenticacao.jwt;
 
-        const ficha = sign({}, secret, {
-            subject: String(usuario.id),
+        const token = sign({}, secret, {
+            subject: String(user.id),
             expiresIn
         });
 
 
-        return res.json({usuario, ficha});
+        return res.json({user, token});
 
 
     }

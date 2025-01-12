@@ -6,11 +6,15 @@ import GlobalStyles from './styles/global.js'
 
 import { Routes } from './routes'
 
+import { ProvedorDeAutenticacao } from './hooks/aut.jsx'
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <Routes />
+      <ProvedorDeAutenticacao>
+        <Routes />
+      </ProvedorDeAutenticacao>
   </ThemeProvider>
 </StrictMode>
 )
