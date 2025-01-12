@@ -5,7 +5,9 @@ const { query } = require('express');
 
 class MovieControllers {
     async create(req, res) {
-        const {name, description, score, user_id} = req.body;
+        const {name, description, score, tags} = req.body;
+
+        const user_id = req.user.id;
 
         // checar se o usuário já existe
 
@@ -21,12 +23,26 @@ class MovieControllers {
             throw new AppError('O filme já foi avaliado!', 400);
         }
 
+        // checa se a nota está entre 1 e 5 estrelas
+
+        if (score < 1 || score > 5) {
+            throw new AppError('A nota deve estar entre 1 e 5 estrelas', 400);
+        }
+        
         const movie = await knex('movie_scores').insert({name, description, score, user_id})
+
+        const inserirMarcadores = tags.map(tags => {
+            return {
+                user_id,
+                movie_id: movie[0],
+                tags
+            }
+        })
+
+        await knex('movie_tags').insert(inserirMarcadores)
 
         return res.status(201).json(`O filme '${name}' foi avaliado com sucesso!`);
     }
-
-
 
     async index(req, res) {
         const movies = await knex('movie_scores').select('*');
@@ -63,13 +79,18 @@ class MovieControllers {
                 id: movie.id,
                 name: movie.name,
                 description: movie.description,
+                score: movie.score,
+                created_at: movie.created_at
             }
         }));
     }
 
     async update(req, res) {
-        const {id} = req.params;
-        const {name, description, score, user_id} = req.body;
+        // const {id} = req.params;
+
+        const {id, name, description, score} = req.body;
+
+        const user_id = req.user.id;
 
         const movie = await knex('movie_scores').where({id}).first();
 
@@ -77,10 +98,7 @@ class MovieControllers {
             throw new AppError('Filme nao encontrado', 404);
         }
 
-
-
         await knex('movie_scores').update({name, description, score, user_id}).where({id});
-
 
         return res.status(200).json(`O filme '${name}' foi atualizado com sucesso!`);
     }

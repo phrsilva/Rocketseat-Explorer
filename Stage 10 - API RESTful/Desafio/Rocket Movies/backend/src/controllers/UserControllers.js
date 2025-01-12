@@ -95,10 +95,10 @@ class UserControllers {
 
     // atualizar usuário
     async update(req, res) {
-        const {id} = req.params;
         const {name, email, password} = req.body;
+        const user_id = req.user.id;
 
-        const user = await knex('users').where({id}).first();
+        const user = await knex('users').where({id: user_id}).first();
 
         if (!user) {
             throw new AppError('Usuário não encontrado', 404);
@@ -138,13 +138,15 @@ class UserControllers {
             user.password = await hash(password, 8);
         }
 
-        await knex('users').update(user).where({id});
+        await knex('users').update(user).where({id: user_id});
+
+
 
         return res.json({
             id: user.id,
             name: user.name,
             email: user.email,
-            created_at: user.created_at
+            updated_at: user.updated_at
         });
 
 
@@ -153,15 +155,15 @@ class UserControllers {
 
     // deletar usuário
     async delete(req, res) {
-        const {id} = req.params;
+        const user_id = req.user.id;
 
-        const user = await knex('users').where({id}).first();
+        const user = await knex('users').where({id: user_id}).first();
 
         if (!user) {
             throw new AppError('Usuário não encontrado', 404);
         }
 
-        await knex('users').delete().where({id});
+        await knex('users').delete().where({id: user_id});
 
         return res.status(200).json({'message':'Usuário deletado com sucesso!!'});
     }

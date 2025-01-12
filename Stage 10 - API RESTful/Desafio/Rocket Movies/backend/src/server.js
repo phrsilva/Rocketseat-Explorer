@@ -31,6 +31,6 @@ app.use((error, request, response, next) => {
 
 
 app.listen(port, () => {
-    console.log(`Servidor node rodando na porta http://localhost:${port}`);
+    console.log(`Servidor RocketMovies rodando na porta http://localhost:${port}`);
 });
 
