@@ -18,6 +18,7 @@ export const Container = styled.header`
     > h1 {
         color: ${({ theme }) => theme.CORES.ROSA_PRINCIPAL};
         font-size: 2rem;
+        cursor: pointer;
     }
     
 `;
@@ -26,11 +27,15 @@ export const Profile = styled.div`
     display: flex;
     align-items: center;
     gap: 1.6rem;
+
     > img {
         width: 5.6rem;
         height: 5.6rem;
         border-radius: 50%;
         border: 1px solid ${({ theme }) => theme.CORES.TEXTO_CINZA};
+        cursor: pointer;
+        
+        
     }
 
     > div {

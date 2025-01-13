@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { api } from "../../../../backend/src/service/API";
-
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
 import { Header } from "../../components/header";
 import { ButtonText } from "../../components/buttonText";

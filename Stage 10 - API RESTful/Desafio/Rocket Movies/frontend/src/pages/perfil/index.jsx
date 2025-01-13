@@ -1,14 +1,17 @@
-import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Container, Header, Avatar, Form } from "./styles";
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { BotaoDeTexto } from "../../components/textButton";
 import {FiArrowLeft, FiCamera, FiMail, FiLock, FiUser} from "react-icons/fi"
 export const Perfil = () => {
+
+    const navigate = useNavigate();
+    
     return (
         <Container>
             <Header>
-                <BotaoDeTexto icon={FiArrowLeft} title="Voltar" Link="/"/>
+                <BotaoDeTexto icon={FiArrowLeft} title="Voltar" onClick={() => navigate(-1)}/>
             </Header>
                      
             <Form>
