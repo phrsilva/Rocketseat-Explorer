@@ -17,6 +17,17 @@ export const Perfil = () => {
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
+    const [avatar, setAvatar] = useState(user.avatar);
+    const [previaAvatar, setPreviaAvatar] = useState(null);
+
+    function mudarAvatar(e) {
+        const file = e.target.files[0];
+        setPreviaAvatar(file);
+
+        const previaPerfil = URL.createObjectURL(file);
+        setAvatar(previaPerfil);
+    }
+
 
     function lidarComAtualizacao(e) {
         
@@ -29,7 +40,7 @@ export const Perfil = () => {
         
         e.preventDefault();
 
-       atualizarPerfil({user});
+       atualizarPerfil({user, previaAvatar});
     }
     
     return (
@@ -41,12 +52,13 @@ export const Perfil = () => {
             <Form>
 
                 <Avatar>
-                        <img src="https://github.com/phrsilva.png" alt="Foto de perfil" />
+                        <img src={avatar} alt="Foto de perfil" />
                         <label htmlFor="avatar">
                         <FiCamera />
                         <input 
                         id="avatar"
-                        type="file" />
+                        type="file"
+                        onChange={mudarAvatar} />
                     </label>
                 </Avatar>
 

@@ -50,8 +50,19 @@ function ProvedorDeAutenticacao({ children }) {
 
     }
 
-    async function atualizarPerfil({user}) {
+    async function atualizarPerfil({user, previaAvatar}) {
         try {
+
+            if (previaAvatar) {
+                const enviarAvatar = new FormData();
+                enviarAvatar.append("avatar", previaAvatar);
+
+                const response = await api.patch("/users/avatar", enviarAvatar);
+                user.avatar = response.data.avatar;
+            }
+
+
+
             await api.put("/users", user);
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
             setData({ user, token: data.token });
