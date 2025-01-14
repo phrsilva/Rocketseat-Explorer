@@ -6,7 +6,7 @@ const AppError = require('../utils/AppError');
 class UserControllers {
     // criar usuário
     async create(req, res) {
-        const {name, email, password} = req.body;
+        const {name, email, currentPassword} = req.body;
 
         const checkUserExists = await knex('users').where({email}).first();
 
@@ -18,16 +18,16 @@ class UserControllers {
 
         // verificar se a senha tem mais de 8 digitos, maíusculas e minúsculas e caracteres especiais
 
-        function validarSenha(password) {
+        function validarSenha(currentPassword) {
             // expressão regular
             
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/
-            return passwordRegex.test(password);
+            return passwordRegex.test(currentPassword);
             
         }
 
-        if (!validarSenha(password)) {
-            console.log(password)
+        if (!validarSenha(currentPassword)) {
+            console.log(currentPassword)
             throw new AppError('A senha deve contar 8 digitos, maiúsculas, minúsculas e caracteres especiais', 400);
         }
 
@@ -46,14 +46,14 @@ class UserControllers {
 
         // criptografar a senha
 
-        const hashedPassword = await hash(password, 8);
+        const hashedPassword = await hash(currentPassword, 8);
 
         // salvar o novo usuário
 
         await knex('users').insert({
             name,
             email,
-            password: hashedPassword
+            currentPassword: hashedPassword
         });
 
         return res.status(201).json({"201": "Usuário criado com sucesso!!"});
@@ -95,7 +95,7 @@ class UserControllers {
 
     // atualizar usuário
     async update(req, res) {
-        const {name, email, password} = req.body;
+        const {name, email, currentPassword, newPassword} = req.body;
         const user_id = req.user.id;
 
         const user = await knex('users').where({id: user_id}).first();
@@ -119,23 +119,31 @@ class UserControllers {
             throw new AppError('Email inválido', 400);
         }
 
-        function validarSenha(password) {
+        function validarSenha(currentPassword) {
             // expressão regular
             
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/
-            return passwordRegex.test(password);
+            return passwordRegex.test(currentPassword);
             
         }
 
         user.name = name || user.name;
         user.email = email || user.email;
 
-        if (password && !validarSenha(password)) {
+        if (currentPassword && !validarSenha(currentPassword)) {
             throw new AppError('A senha deve contar 8 digitos, maiúsculas, minúsculas e caracteres especiais', 400);
         }
 
-        if (password) {
-            user.password = await hash(password, 8);
+        if (newPassword && !validarSenha(newPassword)) {
+            throw new AppError('A nova senha deve contar 8 digitos, maiúsculas, minúsculas e caracteres especiais', 400);
+        }
+
+        if (currentPassword) {
+            user.currentPassword = await hash(currentPassword, 8);
+        }
+
+        if (currentPassword && newPassword) {
+            user.newPassword = await hash(newPassword, 8);
         }
 
         await knex('users').update(user).where({id: user_id});

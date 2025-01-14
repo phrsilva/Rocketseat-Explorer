@@ -17,7 +17,7 @@ function ProvedorDeAutenticacao({ children }) {
             
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
             localStorage.setItem("@rocketmovies:token", token);
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            api.defaults.headers.authorization = `Bearer ${token}`;
             setData({ user, token });
 
         } catch (error) {
@@ -36,7 +36,7 @@ function ProvedorDeAutenticacao({ children }) {
         const token = localStorage.getItem("@rocketmovies:token");
 
         if (user && token) {
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            api.defaults.headers.authorization = `Bearer ${token}`;
 
             setData({ user: JSON.parse(user), token });
         }
@@ -50,17 +50,33 @@ function ProvedorDeAutenticacao({ children }) {
 
     }
 
+    async function atualizarPerfil({user}) {
+        try {
+            await api.put("/users", user);
+            localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+            setData({ user, token: data.token });
+            alert("Perfil atualizado");
+            
+        } catch (error) {
+            if (error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert("Não foi possível cadastrar");
+            }
+        }
+    }
 
 
-    return <ContextoDeAutenticação.Provider value={{autenticar, user: data.user, sair}}>
+
+    return <ContextoDeAutenticação.Provider value={{autenticar, user: data.user, sair, atualizarPerfil}}>
                 {children}
             </ContextoDeAutenticação.Provider>;
-}
+    }
 
 
 function usarAutenticacao() {
     return useContext(ContextoDeAutenticação);
 }
 
-export { ProvedorDeAutenticacao, usarAutenticacao  };
 
+export { ProvedorDeAutenticacao, usarAutenticacao  };
