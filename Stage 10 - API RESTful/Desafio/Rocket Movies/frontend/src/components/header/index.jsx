@@ -8,7 +8,7 @@ import { usarAutenticacao } from "../../hooks/aut";
 
 export function Header() {
     
-    const { user } = usarAutenticacao();
+    const { user , sair}= usarAutenticacao();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : null;
 
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export function Header() {
                     <span>
                         {user.name}
                     </span>
-                    <a href="#">Sair</a>
+                    <a href="/" onClick={sair} >Sair</a>
                 </div>
                     
                     <img src={avatarUrl} alt="Foto de perfil" onClick={() => navigate("/perfil")} />

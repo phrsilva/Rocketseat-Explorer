@@ -17,7 +17,7 @@ function ProvedorDeAutenticacao({ children }) {
             
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
             localStorage.setItem("@rocketmovies:token", token);
-            api.defaults.headers.authorization = `Bearer ${token}`;
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setData({ user, token });
 
         } catch (error) {
@@ -36,14 +36,23 @@ function ProvedorDeAutenticacao({ children }) {
         const token = localStorage.getItem("@rocketmovies:token");
 
         if (user && token) {
-            api.defaults.headers.authorization = `Bearer ${token}`;
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
             setData({ user: JSON.parse(user), token });
         }
     }, []);
 
+    function sair () {
+
+        localStorage.removeItem("@rocketmovies:user");
+        localStorage.removeItem("@rocketmovies:token");
+        setData({});
+
+    }
 
 
-    return <ContextoDeAutenticação.Provider value={{autenticar, user: data.user}}>
+
+    return <ContextoDeAutenticação.Provider value={{autenticar, user: data.user, sair}}>
                 {children}
             </ContextoDeAutenticação.Provider>;
 }
