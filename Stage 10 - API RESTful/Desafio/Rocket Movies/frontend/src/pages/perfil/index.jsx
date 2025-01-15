@@ -6,6 +6,9 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 import { BotaoDeTexto } from "../../components/textButton";
 import {FiArrowLeft, FiCamera, FiMail, FiLock, FiUser} from "react-icons/fi"
+import avatarProvisorio from "../../assets/avatarProvisorio.svg";
+import { api } from "../../../services/api";
+
 export const Perfil = () => {
 
     const { user, atualizarPerfil } = usarAutenticacao();
@@ -16,6 +19,9 @@ export const Perfil = () => {
     const [email, setEmail] = useState(user.email);
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
+
+    const avatarURL = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : avatarProvisorio;
+    console.log(avatarURL);
 
     const [avatar, setAvatar] = useState(user.avatar);
     const [previaAvatar, setPreviaAvatar] = useState(null);
@@ -35,12 +41,13 @@ export const Perfil = () => {
             name,
             email,
             password: currentPassword,
-            newPassword: newPassword
+            newPassword: newPassword,
+            avatar: avatarURL
         }
         
         e.preventDefault();
 
-       atualizarPerfil({user, previaAvatar});
+       atualizarPerfil({user, avatar});
     }
     
     return (
@@ -52,7 +59,7 @@ export const Perfil = () => {
             <Form>
 
                 <Avatar>
-                        <img src={avatar} alt="Foto de perfil" />
+                        <img src={avatarURL} alt="Foto de perfil" />
                         <label htmlFor="avatar">
                         <FiCamera />
                         <input 
