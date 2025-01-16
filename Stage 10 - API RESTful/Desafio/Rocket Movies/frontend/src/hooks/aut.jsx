@@ -1,13 +1,14 @@
 import { createContext, useContext } from "react";
 import { api } from "../../services/api";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ContextoDeAutenticação = createContext({});
 
 function ProvedorDeAutenticacao({ children }) {
+    
 
     const [data, setData] = useState({});
-
 
     async function autenticar({email, password}) {
 
@@ -66,8 +67,9 @@ function ProvedorDeAutenticacao({ children }) {
             await api.put("/users", user);
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
             setData({ user, token: data.token });
-            console.log("User após atualização:", data);
+            console.log("Avatar após atualização:", user.avatar);
             alert("Perfil atualizado");
+
             
         } catch (error) {
             if (error.response) {

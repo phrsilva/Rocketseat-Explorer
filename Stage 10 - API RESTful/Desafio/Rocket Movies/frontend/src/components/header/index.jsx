@@ -9,9 +9,10 @@ import { usarAutenticacao } from "../../hooks/aut";
 export function Header() {
     
     const { user , sair}= usarAutenticacao();
-    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : null;
+    const avatarUrl = user.avatar ? `${user.avatar}`: null;
 
     const navigate = useNavigate();
+    console.log("avatar na header", avatarUrl);
 
     
     

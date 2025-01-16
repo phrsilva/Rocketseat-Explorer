@@ -18,13 +18,13 @@ export const Perfil = () => {
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [currentPassword, setCurrentPassword] = useState("");
+    const avatarURL = user.avatar ? `${user.avatar}` : avatarProvisorio;
     const [newPassword, setNewPassword] = useState("");
-
-    const avatarURL = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : avatarProvisorio;
-    console.log(avatarURL);
-
-    const [avatar, setAvatar] = useState(user.avatar);
     const [previaAvatar, setPreviaAvatar] = useState(null);
+    const [avatar, setAvatar] = useState(user.avatar);
+
+
+
 
     function mudarAvatar(e) {
         const file = e.target.files[0];
@@ -35,19 +35,21 @@ export const Perfil = () => {
     }
 
 
-    function lidarComAtualizacao(e) {
-        
+    async function lidarComAtualizacao(e) {
+        // avaliar comportamento do avatar e previa avatar
         const user = {
             name,
             email,
             password: currentPassword,
             newPassword: newPassword,
-            avatar: avatarURL
+            avatar: previaAvatar
         }
+
         
         e.preventDefault();
 
-       atualizarPerfil({user, avatar});
+       await atualizarPerfil({user, previaAvatar});
+       navigate(-1)
     }
     
     return (
@@ -59,7 +61,7 @@ export const Perfil = () => {
             <Form>
 
                 <Avatar>
-                        <img src={avatarURL} alt="Foto de perfil" />
+                        <img src={previaAvatar ? avatar : avatarURL} alt="Foto de perfil" />
                         <label htmlFor="avatar">
                         <FiCamera />
                         <input 
