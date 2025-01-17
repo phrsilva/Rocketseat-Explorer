@@ -1,7 +1,7 @@
 ## Componente de Cabeçalho 
 
 - [x] Ajustar imagem de perfil 
-- [] Pesquisar notas pelo input de texto 
+- [ ] Pesquisar notas pelo input de texto 
 - [x] Botão de sair 
 
 
