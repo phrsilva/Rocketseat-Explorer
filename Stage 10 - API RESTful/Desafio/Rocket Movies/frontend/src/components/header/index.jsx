@@ -12,7 +12,6 @@ export function Header() {
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}`: null;
 
     const navigate = useNavigate();
-    console.log("avatar na header", avatarUrl);
 
     
     
