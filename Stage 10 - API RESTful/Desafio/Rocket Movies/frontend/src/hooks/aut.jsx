@@ -58,8 +58,10 @@ function ProvedorDeAutenticacao({ children }) {
                 const enviarAvatar = new FormData();
                 enviarAvatar.append("avatar", previaAvatar);
 
+                
                 const response = await api.patch("/users/avatar", enviarAvatar);
                 user.avatar = response.data.avatar;
+                console.log("Avatar depois da atualização:", user.avatar);
             }
 
 
