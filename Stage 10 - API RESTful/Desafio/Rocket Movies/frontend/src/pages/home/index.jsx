@@ -1,14 +1,16 @@
-import { Routes, Route } from "react-router-dom";
 import { Container } from "./styles";
 import { Section } from "../../components/section";
 import { Header } from "../../components/header";
 import { Button } from "../../components/button";
 import { FiPlus, FiStar } from "react-icons/fi";
 import { Tags } from "../../components/tags";
-import { Link } from "react-router-dom";
+import { usarAutenticacao } from "../../hooks/aut";
+import { useNavigate } from "react-router-dom";
 
 
 export const Home = () => {
+    const { user } = usarAutenticacao();
+    const navigate = useNavigate();
     return (
         <Container>
             <Header />
@@ -16,12 +18,12 @@ export const Home = () => {
             <div>
                 
                 <h2>Meus filmes</h2>
-                <Button icon={FiPlus} title="Novo Filme"></Button>
+                <Button icon={FiPlus} title="Novo Filme" onClick={() => navigate("/novo")}></Button>
                 
 
             </div>
             
-            <Section title={"Interestellar"}>
+            <Section title={"Interestellar"} >
 
                 <FiStar color="#FF859B" fill="#FF859B"/>
                 <FiStar color="#FF859B" fill="#FF859B"/>
@@ -33,7 +35,7 @@ export const Home = () => {
                 <FiStar color="#FF859B" fill="#FF859B"/>
 
 
-                <p>Interestellar (2014)</p>
+                <p >Interestellar (2014)</p>
                 <Tags>
                     <span>Ação</span>
                 </Tags>

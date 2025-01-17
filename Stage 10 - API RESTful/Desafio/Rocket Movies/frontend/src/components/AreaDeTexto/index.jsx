@@ -1,7 +1,9 @@
 import { Container } from "./styles";
 
 export function AreaDeTexto({ placeholder  }) {
-    return <Container>
+    return ( 
+        <Container>
             {placeholder}
-        </Container>;
+        </Container>
+    )
 }

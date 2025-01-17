@@ -102,7 +102,7 @@ export const Tags = styled.div`
 `;
 
 
-export const Botoes = styled.button`
+export const Botoes = styled.div`
 
     display: flex;
     align-items: center;
