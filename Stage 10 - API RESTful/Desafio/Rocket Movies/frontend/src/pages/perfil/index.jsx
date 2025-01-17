@@ -43,7 +43,7 @@ export function Perfil() {
     
     }
 
-
+// acho que o gargalo está aqui
     function mudarAvatar(event) {
         const file = event.target.files[0];
         setPreviaAvatar(file);
