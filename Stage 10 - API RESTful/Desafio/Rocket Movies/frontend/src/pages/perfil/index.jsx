@@ -27,7 +27,6 @@ export function Perfil() {
     const [previaAvatar, setPreviaAvatar] = useState(null);
 
     async function lidarComAtualizacao() {
-        // avaliar comportamento do avatar e previa avatar
         const atualizarUser = {
             name,
             email,

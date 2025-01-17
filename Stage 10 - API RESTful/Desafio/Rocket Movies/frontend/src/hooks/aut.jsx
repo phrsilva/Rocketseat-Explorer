@@ -61,7 +61,6 @@ function ProvedorDeAutenticacao({ children }) {
                 
                 const response = await api.patch("/users/avatar", enviarAvatar);
                 user.avatar = response.data.avatar;
-                console.log("Avatar depois da atualização:", user.avatar);
             }
 
 
@@ -69,7 +68,6 @@ function ProvedorDeAutenticacao({ children }) {
             await api.put("/users", user);
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
             setData({ user, token: data.token });
-            console.log("Avatar após atualização:", user.avatar);
             alert("Perfil atualizado");
 
             
