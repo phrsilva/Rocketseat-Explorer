@@ -83,6 +83,14 @@ export const Tags = styled.div`
         filter: brightness(0.9);
       }
 
+      input {
+        border: none;
+        background: none;
+        color: ${({ theme }) => theme.CORES.TEXTO_BRANCO};
+        width: 75%;
+        align-items: left;
+      }
+
       &:last-child {
         background-color: transparent;
         border: 2px dashed ${({ theme }) => theme.CORES.ROSA_PRINCIPAL};
@@ -94,6 +102,51 @@ export const Tags = styled.div`
 
       
     }
+
+  span {
+      display: inline-block;
+      border: none;
+      background: none;
+      color: ${({ theme }) => theme.CORES.TEXTO_BRANCO};
+    } 
+  
+  span button {
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.CORES.ROSA_PRINCIPAL};
+    cursor: pointer;
+  }
+
+  .tags-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tags-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid ${({ theme }) => theme.CORES.FUNDO_ESCURO};
+    background-color: transparent;
+    color: ${({ theme }) => theme.CORES.TEXTO_BRANCO};
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.tags-input button {
+    background-color: ${({ theme }) => theme.CORES.ROSA_PRINCIPAL};
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
 
     
 
