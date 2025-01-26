@@ -19,7 +19,7 @@ export function Home() {
         <Feature title="Produto" icon={FiTag} to="/product" />
 
         {
-          user.role === 'admin' || user.role === 'sale' &&
+          (user.role === 'admin' || user.role === 'sale') &&
           <>
           {user.role === 'admin' && <Feature title="Fornecedores" icon={FiTruck} to="/suppliers" />}
           <Feature title="Relatório de vendas" icon={FiShoppingCart} to="/sales-report" />
