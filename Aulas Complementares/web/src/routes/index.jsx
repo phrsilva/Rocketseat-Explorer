@@ -10,9 +10,20 @@ import { SaleRoutes } from './sale.routes';
 export function Routes() {
   const { user } = useAuth();
 
+  function AccessRoute(){
+    switch(user.role){
+      case 'sale':
+        return <SaleRoutes />
+      case 'admin':
+        return <AdminRoutes />
+      default:
+        return <CustomerRoutes />
+        }
+  }
+
   return (
     <BrowserRouter>
-      {user ? <AdminRoutes /> : <AuthRoutes />}
+      {user ? <AccessRoute /> : <AuthRoutes />}
     </BrowserRouter>
   );
 }
